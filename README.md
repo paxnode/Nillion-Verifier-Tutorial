@@ -136,5 +136,5 @@ For additional information, refer to the following resources:
 
 ---
 
-Thank you for being an integral part of the Nillion community!
+LFG. soon im will share a vana network tutorial and more.
 ```
