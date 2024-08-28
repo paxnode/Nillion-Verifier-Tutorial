@@ -3,7 +3,8 @@
 
 ## Become a Nillion Verifier
 
-We’re thrilled to unveil the Nillion Verifier. As a verifier, you will ensure data integrity across the network, playing a crucial role in maintaining security and preparing for the mainnet launch.
+We’re thrilled to unveil the Nillion Verifier. As a verifier, you will ensure data integrity across the network,
+playing a crucial role in maintaining security and preparing for the mainnet launch.
 
 Early verifiers will have the opportunity to be acknowledged for their contributions, setting themselves apart in the community.
 
