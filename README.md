@@ -1,4 +1,3 @@
-
 ```markdown
 # 🛡️ Nillion Verifier Setup Guide
 
@@ -14,7 +13,7 @@ This guide will take you through the steps required to run a Nillion Verifier, f
 
 Before you begin, ensure you have the following:
 
-- A computer running **Ubuntu 20.04** or later or vps
+- A computer running **Ubuntu 20.04** or later, or a VPS.
 - A stable internet connection.
 - Basic familiarity with the terminal and Docker.
 
@@ -25,7 +24,7 @@ Before you begin, ensure you have the following:
 1. Navigate to the [**Nillion Verifier Portal**](https://verifier.nillion.com).
 2. Click on the **Verifier** option.
 3. Connect your account by following the on-screen instructions.
-4. To begin, request a faucet from [**Nillion Testnet Faucet**](https://faucet.testnet.nillion.com/).
+4. To begin, request tokens from [**Nillion Testnet Faucet**](https://faucet.testnet.nillion.com/).
 
 Ensure your account is successfully connected and funded before proceeding to the next steps.
 
@@ -54,64 +53,64 @@ docker --version
 
 ## 🐳 Step 3: Pull the Nillion Docker Image
 
-Pull the latest Nillion accuser image from Docker Hub to your local environment:
+Pull the latest Nillion verifier image from Docker Hub to your local environment:
 
 ```bash
-docker pull nillion/retailtoken-accuser:v1.0.0
+docker pull nillion/verifier:v1.0.0
 ```
 
-- **Explanation**: This pulls the `retailtoken-accuser:v1.0.0` image from the official Nillion Docker repository, ensuring you have the latest version required to run the verifier.
+- **Explanation**: This pulls the `verifier:v1.0.0` image from the official Nillion Docker repository, ensuring you have the latest version required to run the verifier.
 
 ---
 
-## 🏗️ Step 4: Initialize the Accuser
+## 🏗️ Step 4: Initialize the Verifier
 
-Before you can run the accuser, it must be initialized. Start by creating the necessary directories and then initializing the accuser:
+Before you can run the verifier, it must be initialized. Start by creating the necessary directories and initializing the verifier:
 
 ```bash
-mkdir -p ~/nillion/accuser
+mkdir -p ~/nillion/verifier
 
-docker run -v ~/nillion/accuser:/var/tmp nillion/retailtoken-accuser:v1.0.0 initialise
+docker run -v ~/nillion/verifier:/var/tmp nillion/verifier:v1.0.0 initialise
 ```
 
-- **Explanation**: The `mkdir -p` command creates the required directory structure. The Docker command initializes the accuser, generating a public key and an accuser address. Make sure to store these securely as they will be required for further steps.
+- **Explanation**: The `mkdir -p` command creates the required directory structure. The Docker command initializes the verifier, generating a public key and a verifier address. Make sure to store these securely as they will be required for further steps.
 
-After initialization, the `pubkey` and `accuser address` will be displayed. Copy these and paste them into the appropriate fields on the verifier portal.
+After initialization, the `pubkey` and `verifier address` will be displayed. Copy these and paste them into the appropriate fields on the verifier portal.
 
 ---
 
-## 💰 Step 5: Fund the Accuser
+## 💰 Step 5: Fund the Verifier
 
-With your accuser address in hand, claim a faucet from the [**Nillion Testnet Faucet**](https://faucet.testnet.nillion.com/). Ensure your accuser is adequately funded before proceeding.
+With your verifier address in hand, claim tokens from the [**Nillion Testnet Faucet**](https://faucet.testnet.nillion.com/). Ensure your verifier is adequately funded before proceeding.
 
 ---
 
 ## ⏳ Step 6: Wait Period
 
-**Important**: Before running the accuser, it is crucial to allow a **30-60 minute** wait period after funding. This ensures that all processes are synchronized and that your accuser is fully prepared to interact with the network.
+**Important**: Before running the verifier, it is crucial to allow a **30-60 minute** wait period after funding. This ensures that all processes are synchronized and that your verifier is fully prepared to interact with the network.
 
 ---
 
-## ⚙️ Step 7: Running the Accuser
+## ⚙️ Step 7: Running the Verifier
 
-After the wait period, you can start the accuser with the following command:
+After the wait period, you can start the verifier with the following command:
 
 ```bash
-docker run -v ~/nillion/accuser:/var/tmp nillion/retailtoken-accuser:v1.0.0 accuse --rpc-endpoint "http://65.109.222.111:26657" --block-start 5052768
+docker run -v ~/nillion/verifier:/var/tmp nillion/verifier:v1.0.0 verify --rpc-endpoint "http://65.109.222.111:26657" --block-start 5052768
 ```
 
-- **Explanation**: This command launches the accuser and connects it to the Nillion network. Ensure that your accuser account has sufficient funds from the faucet before executing this command.
+- **Explanation**: This command launches the verifier and connects it to the Nillion network. Ensure that your verifier account has sufficient funds from the faucet before executing this command.
 
-Monitor the output to ensure the accuser is running correctly.
+Monitor the output to ensure the verifier is running correctly.
 
 ---
 
-## 🔒 Step 8: Backup Your Accuser Wallet
+## 🔒 Step 8: Backup Your Verifier Wallet
 
-Securing your accuser wallet is critical. Backup your wallet credentials by running:
+Securing your verifier wallet is critical. Backup your wallet credentials by running:
 
 ```bash
-cat ~/nillion/accuser/credentials.json
+cat ~/nillion/verifier/credentials.json
 ```
 
 This command will display your `private key`, `public key`, and `address`. **Store this information securely**—it is essential for recovering your verifier if needed.
@@ -136,5 +135,5 @@ For additional information, refer to the following resources:
 
 ---
 
-LFG. soon im will share a vana network tutorial and more.
+LFG. Soon, I will share a Vana network tutorial and more.
 ```
